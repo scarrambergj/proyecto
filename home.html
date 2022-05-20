@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="./public/styles/transfers.css" />
+    <link rel="stylesheet" href="./public/styles/home.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -56,9 +56,7 @@
         <p class="align-self-end p-0 m-0">Nombre del Usuario</p>
       </div>
     </header>
-    <main
-      class="container-fluid my-5 px-5"
-    >
+    <main class="container-fluid my-5 px-5">
       <div class="row">
         <aside class="col-3">
           <div class="card h-100 bg-light p-3">
@@ -76,51 +74,89 @@
           </div>
         </aside>
         <div class="col-9">
-          <div class="card p-3 bg-light">
-            <div class="my-2">
-              <h3>Tus transferencias</h3>
-              <p>¿A donde querés transferir?</p>
+          <h1 class="text-center">Inicio</h1>
+          <div class="row gx-4">
+            <div class="col-7">
+              <div class="card p-3 mt-3 bg-light">
+                <div class="my-2">
+                  <h3>Tu cuenta principal</h3>
+                </div>
+                <div
+                  class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center">
+                  <i class="bi bi-gem"></i>
+                  <div class="d-flex align-self-center flex-column mx-3 mt-2">
+                    <h5 class="p-0 m-0">$100</h5>
+                    <p class="p-0 m-0">Caja de ahorro en pesos</p>
+                    <a class="h6" href="">Ver detalle</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="row gx-4">
-              <div class="col-4">
-                <div
-                  class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center py-5 press"
-                >
-                  <i class="bi bi-bank mr-3"></i>
-                  <h6 class="my-1">A otra cuenta con alias, CBU o CVU</h6>
+            <div class="col-5">
+              <div class="card p-3 mt-3 bg-light">
+                <div class="my-2">
+                  <h3>Tus tarjetas</h3>
                 </div>
+                <div
+                  class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center"
+                >
+                <i class="bi bi-wallet"></i>
+                <div class="d-flex align-self-center flex-column mx-3 mt-2">
+                  <h5 class="p-0 m-0">Consumos</h5>
+                  <p class="p-0 m-0">Desde el 22/5 hasta el 12/6</p>
+                  <span class="d-flex justify-content-between">
+                    <p class="p-0 m-0">$: +25.500,00</p>
+                    <p class="p-0 m-0">U$S: +0,00</p>
+                  </span>
+                  <a class="h6" href="">Ver detalle</a>
+                </div>  
               </div>
-              <div class="col-4">
-                <div
-                  class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center py-5 press"
-                >
-                  <i class="bi bi-arrow-left-right mr-3"></i>
-                  <h6 class="my-1">A una de mis cuentas ITBANK</h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div
-                  class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center py-5 press"
-                >
-                  <i class="bi bi-credit-card mr-3"></i>
-                  <h6 class="my-1">
-                    A un cajero automático para extraer efectivo sin tarjetas
-                  </h6>
-                </div>
               </div>
             </div>
           </div>
-
           <div class="card p-3 mt-3 bg-light">
-            <div>
-              <h3>A uno de mis contactos</h3>
+            <div class="my-2">
+              <h3>Ultimos movimientos</h3>
             </div>
-            <div
-              class="bg-white my-3 shadow-sm border border-dark card-body d-flex flex-column"
-            >
-              <i class="bi bi-plus-circle-fill align-self-center iconpress"></i>
-              <p class="text-center">Agendar contactos</p>
+            <div class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="border-top-0" scope="col">Fecha</th>
+                    <th class="border-top-0" scope="col">Concepto</th>
+                    <th class="border-top-0" scope="col">Monto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">01/02/22</th>
+                   
+                    <td>Dia</td>
+                    <td>$5000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">02/02/22</th>
+                    
+                    <td>Carrefour</td>
+                    <td>$2000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">03/02/22</th>
+                    <td>Amazon</td>
+                    <td>U$S15,00</td>
+                  </tr>
+                </tbody>
+              </table>
+              
             </div>
+            <div class="my-2 d-flex justify-content-end flecha">
+              <div class="d-flex align-items-center">
+                <a class="h6 m-0 p-0">Todos los movimientos</a>
+                <i class="bi bi-caret-right-fill"></i>
+              </div>
+             
+            </div>
+            
           </div>
         </div>
       </div>

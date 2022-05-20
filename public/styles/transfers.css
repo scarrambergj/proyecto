@@ -22,18 +22,18 @@ footer {
     text-align: center;
 }
 
-main li {
+aside li {
     list-style-type: none;
     margin: 1.7em 0 1.7em 0;
 }
 
-main li a {
+aside li a {
     color: black;
     font-size: 1.2em;
     text-decoration: none;
 }
 
-main ul li:first-child {
+aside ul li:first-child {
     margin-top: 0;
 }
 

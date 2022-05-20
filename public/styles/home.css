@@ -1,0 +1,62 @@
+i {
+    font-size: 3.5em;
+}
+
+header img {
+    width: 60px;
+}
+
+header i {
+    font-size: 1em;
+}
+
+main a {
+    text-decoration: none;
+}
+
+.col-7 .card, .col-5 .card {
+    height: 15em;
+}
+
+.flecha i {
+    font-size: 1.2em;
+    margin-left: 0.5px;
+}
+
+.flecha a:hover {
+    text-decoration: none;
+    color:black;
+}
+
+.flecha div:hover {
+    transform: scale(1.05);
+}
+
+aside li {
+    list-style-type: none;
+    margin: 1.7em 0 1.7em 0;
+}
+
+aside li a {
+    color: black;
+    font-size: 1.2em;
+    
+}
+
+aside ul li:first-child {
+    margin-top: 0;
+}
+
+footer {
+    background-color: black;
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: .4px;
+    color: white;
+    width: 100%;
+    bottom: 40px;
+    left: 0;
+    text-align: center;
+}
