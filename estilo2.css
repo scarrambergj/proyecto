@@ -1,0 +1,119 @@
+.container-fluid{
+    background-color: whitesmoke;
+}
+
+.count {
+    margin-left: 5%;
+    height:70px;
+    padding:0;
+    font-size: 20px;
+    float: right;
+    margin-right: 64%;
+    /*display: inline-block;*/
+
+
+}
+* {
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+li {
+    list-style: none;   
+}
+.Sub {
+    margin: 50px;
+    width:80%;
+    height: 100%;
+    float: right;
+    top:0;
+}
+img {
+    font-size: 3;
+    width: 150px;
+    display: inline;
+}
+
+ul, li {
+    font-display: inline-block;
+}
+.form{
+    background-color: whitesmoke;
+    margin: 0;
+    border-radius: 1px;
+    border: 1px solid black;
+    display: inline-block;
+    width: 243px;
+    box-shadow: 5px 8px 9px grey;
+}
+.diamond { 
+    background-color: whitesmoke;
+    font-size: 20px;
+    float:right;    
+    margin-top:0;
+    margin-right:0;
+    border-radius: 4px;
+    border: 1px solid black;
+    width: 1000px;
+    box-shadow: 5px 7px 15px gray;
+    
+}
+.transition {
+    background-color: whitesmoke;
+    font-size: 15px;
+    float: right;
+    margin-top: 0;
+    margin-right:0;
+    border-radius: 4px;
+    width: 600px;
+    /*border: 1px solid black;*/
+    box-shadow: 1px 5px 10px gray;
+    font-family: 'Courier New', Courier, monospace;
+     
+}
+p {
+    font-size: 23px;
+    font-family:Arial, Helvetica, sans-serif;
+    display: inline-block;
+    
+}
+.money{
+    background-color: whitesmoke;
+    display: inline-block;
+    width: 90px;
+}
+h1{
+    width: 50%;
+    text-align: center;
+}
+h2 {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block
+}
+h3 {
+    font: size 15px;
+    float: right;
+}
+.box{ 
+    margin-right:22%;
+    float: right;
+}
+.table{
+    background-color:whitesmoke;
+    width:50%;
+    margin-top:-20%;
+    margin-left: 20%;
+    border-radius:10px;
+    box-shadow: 5px 7px 15px gray;
+    text-align: center;
+    
+    
+}
+
+tr, td{
+display: inline-block;
+    text-align: center;
+    border-radius:1px, solid black;
+
+}
