@@ -1,0 +1,49 @@
+header img {
+    width: 60px;
+}
+
+header i {
+    font-size: 1em;
+}
+
+main 
+
+
+
+footer {
+    background-color: black;
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: .4px;
+    color: white;
+    width: 100%;
+    bottom: 40px;
+    left: 0;
+    text-align: center;
+}
+
+aside li {
+    list-style-type: none;
+    margin: 1.7em 0 1.7em 0;
+}
+
+aside li a {
+    color: black;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+aside ul li:first-child {
+    margin-top: 0;
+}
+
+i {
+    font-size: 2em;
+}
+
+.iconpress:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0px 0px rgba(0,0,0,.12), 0 0px 0px rgba(0,0,0,.06);
+}
