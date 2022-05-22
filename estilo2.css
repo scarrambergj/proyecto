@@ -91,3 +91,13 @@ h3 {
     margin-bottom:;
     float: right;
 }
+.table{
+    width:48%;
+    margin-top:-50%;
+    margin-left: 20%;
+}
+
+tr, td{
+display: inline-block
+    text-align: center
+}
