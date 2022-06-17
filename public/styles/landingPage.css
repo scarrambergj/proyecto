@@ -20,3 +20,10 @@ p {
     text-align: center;
     margin: auto;
 }
+
+img { 
+    width: 40px;
+}
+/*.row {
+ background-color: gray;
+}*/
