@@ -1,88 +1,145 @@
 let cotizaciones;
-let cotizacion = $('#cotizacion');
+let cotizacion = $("#cotizacion");
+let referencia = $(".referencia");
 let fecha = new Date().toLocaleString();
 
 let traer = async () => {
-    await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
-    .then(res => res.json())
-    .then(data => {
-          cotizaciones = data.filter(element => {
-          return element.casa.nombre == 'Dolar Oficial' || 
-          element.casa.nombre == 'Dolar Blue' ||
-          element.casa.nombre == 'Dolar Contado con Liqui' ||
-          element.casa.nombre == 'Dolar' ||
-          element.casa.nombre == 'Dolar Bolsa' ||
-          element.casa.nombre == 'Dolar turista'
-        })
-       });
+  await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    .then((res) => res.json())
+    .then((data) => {
+      cotizaciones = data.filter((element) => {
+        return (
+          element.casa.nombre == "Dolar Oficial" ||
+          element.casa.nombre == "Dolar Blue" ||
+          element.casa.nombre == "Dolar Contado con Liqui" ||
+          element.casa.nombre == "Dolar" ||
+          element.casa.nombre == "Dolar Bolsa" ||
+          element.casa.nombre == "Dolar turista"
+        );
+      });
+    });
 };
 
+let agregarImagenes = () => {
+  cotizaciones.forEach((element, i) => {
+    element.casa.img = "/public/images/dolar" + i + ".png";
+  });
+};
 
-let cargar = async () => {
-  traer();
-  await traer();
-  enviar();
-}
+let agregarReferencia = () => {
+  cotizaciones.map((element) => {
+    if (
+      element.casa.nombre === "Dolar Oficial" ||
+      element.casa.nombre === "Dolar Blue" ||
+      element.casa.nombre === "Dolar"
+    ) {
+      element.casa.referencia = "compraventa";
+    } else if (
+      element.casa.nombre === "Dolar Bolsa" ||
+      element.casa.nombre === "Dolar Contado con Liqui"
+    ) {
+      element.casa.referencia = "referencia";
+    } else {
+      element.casa.referencia = "venta";
+    }
+  });
+};
 
-cargar();
+let promedio = () => {
+  let dolares = cotizaciones.filter((element) => "variacion" in element.casa);
+  let variaciones = [];
+  let promedioDeVariaciones = () => {
+    for (const i of dolares) {
+      variaciones.push(i.casa.variacion);
+    }
+    return variaciones.reduce((acc, val) => acc + val);
+  };
+  return promedioDeVariaciones();
+};
+
+let modificarArray = () => {
+  agregarImagenes();
+  agregarReferencia();
+  cotizaciones.map((element) =>
+    element.casa.nombre === "Dolar"
+      ? (element.casa.nombre = "dolar promedio")
+      : ""
+  );
+  cotizaciones.map(element => 'variacion' in element.casa ? element.casa.variacion = parseFloat(element.casa.variacion.replace(",", ".")) : '');
+  cotizaciones.map((element) =>
+    element.casa.nombre === "dolar promedio"
+      ? (element.casa.variacion = promedio())
+      : ""
+  );
+};
+  
+
+let signoVariacion = (object) => {
+  let numero = object.casa.variacion;
+  if (numero < 0) {
+    return `<i class="bi bi-caret-down-fill"></i>`;
+  } else if (numero > 0) {
+    return `<i class="bi bi-caret-up-fill"></i>`;
+  } else { return `<i class="bi bi-dash"></i>`
+  };
+};
 
 let enviar = () => {
   for (const i of cotizaciones) {
     let nombre = i.casa.nombre;
     cotizacion.append(`<div class="col-4 my-3">
     <div class="px-5 cotizacion">
-    <div class="row">
-      <img src="/public/images/dolaroficial.png">
+    <div class="row" >
+      <img src=${i.casa.img}>
       <h1> ${nombre.toUpperCase()}</h1>
     </div>
-    <div class="row">
-      <div class="col">
-        <p>COMPRA</p>
-        <p> ${i.casa.compra} </p>
-      </div>
-      <div class="col">
-        <p>VENTA</p>
-        <p> ${i.casa.venta} </p>
-      </div>
+    <div class="row referencia">
+      ${enviarReferencia(i)}
     </div>
     <div class="row">
       <p>VARIACION</p>
-      <p> ${i.casa.variacion} </p>
+     ${signoVariacion(i)}
+      <p> ${i.casa.variacion}% </p>
     </div>
     <div class="row">
       <p>ACTUALIZADO: ${fecha}</p>
     </div>
     </div>       
-  </div>`)
+  </div>`);
   }
-}
+};
 
+let enviarReferencia = (object) => {
+  if (object.casa.referencia === "compraventa") {
+    return ` <div class="col">
+    <p>COMPRA</p>
+    <p> $ ${object.casa.compra} </p>
+  </div>
+  <div class="col">
+    <p>VENTA</p>
+    <p> $ ${object.casa.venta} </p>
+  </div> `;
+  } else if (object.casa.referencia === "venta") {
+    return ` <div class="col">
+        <p>VENTA</p>
+        <p> $ ${object.casa.venta} </p>
+     </div>`;
+  } else {
+    return ` <div class="col">
+        <p>REFERENCIA</p>
+        <p> $ ${object.casa.compra} </p>
+     </div>`;
+  }
+};
 
-  
+let cargar = async () => {
+  traer();
+  await traer();
+  modificarArray();
+  enviar();
+};
 
+cargar();
 
-
-
-
-
-
-/* <div class="col-sm w-75" id="cotizacion">
-          <div class="row">
-            <img src="/public/images/dolaroficial.png">
-            <h1>DOLAR OFICIAL</h1>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p>COMPRA</p>
-            </div>
-            <div class="col">
-              <p>VENTA</p>
-            </div>
-          </div>
-          <div class="row">
-            <p>VARIACION</p>
-          </div>
-          <div class="row">
-            <p>ACTUALIZADO:</p>
-          </div>       
-        </div> */
+// fa fa-caret-down
+// fa fa-caret-up
