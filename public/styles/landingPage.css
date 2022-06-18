@@ -4,10 +4,9 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
-.w-75 {
+.cotizacion {
     background-color: beige;
     /* grid-gap: 20px 20px; */
-    margin: 5px;
     border-radius: 10px;
 }
 
