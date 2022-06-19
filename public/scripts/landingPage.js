@@ -1,6 +1,5 @@
 let cotizaciones;
 let cotizacion = $("#cotizacion");
-let referencia = $(".referencia");
 let fecha = new Date().toLocaleString();
 
 let traer = async () => {
@@ -47,8 +46,8 @@ let agregarReferencia = () => {
 
 let promedio = () => {
   let dolares = cotizaciones.filter((element) => "variacion" in element.casa);
-  let variaciones = [];
   let promedioDeVariaciones = () => {
+    let variaciones = [];
     for (const i of dolares) {
       variaciones.push(i.casa.variacion);
     }
@@ -65,14 +64,19 @@ let modificarArray = () => {
       ? (element.casa.nombre = "dolar promedio")
       : ""
   );
-  cotizaciones.map(element => 'variacion' in element.casa ? element.casa.variacion = parseFloat(element.casa.variacion.replace(",", ".")) : '');
+  cotizaciones.map((element) =>
+    "variacion" in element.casa
+      ? (element.casa.variacion = parseFloat(
+          element.casa.variacion.replace(",", ".")
+        ))
+      : ""
+  );
   cotizaciones.map((element) =>
     element.casa.nombre === "dolar promedio"
       ? (element.casa.variacion = promedio())
       : ""
   );
 };
-  
 
 let signoVariacion = (object) => {
   let numero = object.casa.variacion;
@@ -80,8 +84,32 @@ let signoVariacion = (object) => {
     return `<i class="bi bi-caret-down-fill"></i>`;
   } else if (numero > 0) {
     return `<i class="bi bi-caret-up-fill"></i>`;
-  } else { return `<i class="bi bi-dash"></i>`
-  };
+  } else {
+    return `<i class="bi bi-dash"></i>`;
+  }
+};
+
+let enviarReferencia = (object) => {
+  if (object.casa.referencia === "compraventa") {
+    return ` <div class="col">
+    <p>COMPRA</p>
+    <p> $ ${object.casa.compra} </p>
+  </div>
+  <div class="col">
+    <p>VENTA</p>
+    <p> $ ${object.casa.venta} </p>
+  </div> `;
+  } else if (object.casa.referencia === "venta") {
+    return ` <div class="col">
+        <p>VENTA</p>
+        <p> $ ${object.casa.venta} </p>
+     </div>`;
+  } else {
+    return ` <div class="col">
+        <p>REFERENCIA</p>
+        <p> $ ${object.casa.compra} </p>
+     </div>`;
+  }
 };
 
 let enviar = () => {
@@ -109,37 +137,10 @@ let enviar = () => {
   }
 };
 
-let enviarReferencia = (object) => {
-  if (object.casa.referencia === "compraventa") {
-    return ` <div class="col">
-    <p>COMPRA</p>
-    <p> $ ${object.casa.compra} </p>
-  </div>
-  <div class="col">
-    <p>VENTA</p>
-    <p> $ ${object.casa.venta} </p>
-  </div> `;
-  } else if (object.casa.referencia === "venta") {
-    return ` <div class="col">
-        <p>VENTA</p>
-        <p> $ ${object.casa.venta} </p>
-     </div>`;
-  } else {
-    return ` <div class="col">
-        <p>REFERENCIA</p>
-        <p> $ ${object.casa.compra} </p>
-     </div>`;
-  }
-};
-
 let cargar = async () => {
-  traer();
   await traer();
   modificarArray();
   enviar();
 };
 
 cargar();
-
-// fa fa-caret-down
-// fa fa-caret-up
