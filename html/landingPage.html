@@ -7,23 +7,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/public/styles/landingPage.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="/public/styles/landingPage.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"/>
     <title>Landing Page</title>
     <link rel="shortcut icon" href="/public/images/icono2.png"/>
   </head>
   <body>
+    <header class="mb-5 border-bottom border-dark d-flex flex-row-reverse">
+      <img
+        src="/public/images/logo.png"
+        alt="Logo itbank"
+        class="img-fluid m-3 img-thumbnail iconpress float"
+      />
+      <div class="dropdown align-self-center mx-3">
+        <button
+          class="btn btn-lg dropdown-toggle border border-1"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Cuenta</a></li>
+          <li><a class="dropdown-item" href="#">Ayuda</a></li>
+          <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+      <div class="d-flex align-self-center flex-column mx-3 mt-2">
+        <h6 class="align-self-end p-0 m-0">Bienvenido</h6>
+        <p class="align-self-end p-0 m-0 userName">Nombre del Usuario</p>
+      </div>
+    </header>
     <div class="card">
       <div class="card-header">
         <button id="back">&lt; volver</button>
       </div>
       <div class="card-body">
-        <h5 class="card-title">COTIZACION</h5>
-        
-       
+        <h5 class="card-title titulo">COTIZACION</h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -38,16 +60,19 @@
         <h5 class="card-title">CAMBIO DE MONEDA</h5>
         <p class="card-text">Podés comprar y vender moneda extranjera de lunes a viernes de 5 a 23horas.</p>
         <a href="#" class="btn btn-primary">Cambiar</a>
-      </div>
-      <div class="card-footer text-muted">
-        ItBank
-      </div>
+
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="../public/scripts/landingPage.js"></script>
+    <script src="/public/scripts/landingPage.js"></script>
+    <footer>
+      <div class="terms" role="contentinfo">
+        <p data-hj-masked="">Operar con Online Banking es aceptar los <b>terminos y condiciones</b> que ofrece el servicio.</p>
+        <p data-hj-masked=""><a href="#">Información sobre seguridad</a></p>
+    </div>
+    </footer>
   </body>
 </html>
