@@ -19,6 +19,8 @@ let traer = async () => {
     });
 };
 
+
+
 let agregarImagenes = () => {
   cotizaciones.forEach((element, i) => {
     element.casa.img = "/public/images/dolar" + i + ".png";
@@ -81,11 +83,11 @@ let modificarArray = () => {
 let signoVariacion = (object) => {
   let numero = object.casa.variacion;
   if (numero < 0) {
-    return `<i class="bi bi-caret-down-fill"></i>`;
+    return `<i class="bi bi-caret-down-fill text-danger"></i>`;
   } else if (numero > 0) {
-    return `<i class="bi bi-caret-up-fill"></i>`;
+    return `<i class="bi bi-caret-up-fill text-success"></i>`;
   } else {
-    return `<i class="bi bi-dash"></i>`;
+    return `<i class="bi bi-dash text-secondary"></i>`;
   }
 };
 
@@ -116,16 +118,16 @@ let enviar = () => {
   for (const i of cotizaciones) {
     let nombre = i.casa.nombre;
     cotizacion.append(`<div class="col-4 my-3">
-    <div class="px-5 cotizacion">
-    <div class="row" >
-      <img src=${i.casa.img}>
+    <div class="px-5 py-3 bg-light border border-dark shadow-sm rounded">
+    <div class='row'>
+      <img src='${i.casa.img}'>
       <h1> ${nombre.toUpperCase()}</h1>
     </div>
     <div class="row referencia">
       ${enviarReferencia(i)}
     </div>
     <div class="row">
-      <p>VARIACION</p>
+      <p>VARIACIÓN</p>
      ${signoVariacion(i)}
       <p> ${i.casa.variacion}% </p>
     </div>

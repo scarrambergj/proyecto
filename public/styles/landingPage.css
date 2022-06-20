@@ -11,12 +11,6 @@ header i {
     font-size: 1em;
 }
 
-.cotizacion {
-    background-color: rgb(244, 244, 244);
-    /* grid-gap: 20px 20px; */
-    border-radius: 10px;
-}
-
 h1 {
     margin:auto;
     font-size: x-large;
@@ -32,6 +26,7 @@ p {
 }
 img { 
     width: 40px;
+    height: 40px;
 }
 
 .terms {
@@ -53,4 +48,8 @@ img {
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
+}
+
+main i {
+    font-size: 1.5em;
 }
