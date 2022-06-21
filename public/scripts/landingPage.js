@@ -53,7 +53,7 @@ let promedio = () => {
     for (const i of dolares) {
       variaciones.push(i.casa.variacion);
     }
-    return variaciones.reduce((acc, val) => acc + val);
+    return (variaciones.reduce((acc, val) => acc + val) / variaciones.length).toFixed(2);
   };
   return promedioDeVariaciones();
 };
